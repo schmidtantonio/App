@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KartenSchmiede AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside class="sidebar">
+        <header class="brand">
+          <div class="brand__logo">KS</div>
+          <div class="brand__title">KartenSchmiede <span>AI</span></div>
+        </header>
+
+        <section class="panel">
+          <div class="panel__title">
+            <span class="icon">🎨</span>
+            Format
+          </div>
+          <div class="format-grid" id="formatOptions"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel__title">
+            <span class="icon">✨</span>
+            Motiv-Generator
+          </div>
+          <label class="field">
+            <span>Anlass</span>
+            <select id="occasion"></select>
+          </label>
+          <label class="field">
+            <span>Stil</span>
+            <select id="style"></select>
+          </label>
+          <button class="button ghost" id="shuffleBackground">🎲 Neues Bild würfeln</button>
+        </section>
+
+        <section class="panel">
+          <div class="panel__title">
+            <span class="icon">🔠</span>
+            Text & Layout
+          </div>
+          <div class="button-row">
+            <button class="button ghost" id="alignLeft">⇤ Pos</button>
+            <button class="button ghost" id="alignCenter">⟲ Reihenfolge</button>
+          </div>
+          <label class="field">
+            <span>Überschrift</span>
+            <input id="titleInput" type="text" value="Happy Birthday" />
+          </label>
+          <label class="field">
+            <span>Untertitel / Nachricht</span>
+            <textarea id="subtitleInput" rows="3">Ich wünsche dir einen wundervollen Tag voller Freude und Glück!</textarea>
+          </label>
+          <label class="field">
+            <span>Unterschrift (Optional)</span>
+            <input id="signatureInput" type="text" placeholder="Dein Name" />
+          </label>
+        </section>
+
+        <section class="panel">
+          <div class="panel__title">
+            <span class="icon">🤖</span>
+            Gemini-Assistent
+          </div>
+          <label class="field">
+            <span>Gemini API Key</span>
+            <input id="apiKeyInput" type="password" placeholder="API Key speichern" />
+          </label>
+          <label class="field">
+            <span>Prompt (optional)</span>
+            <textarea id="promptInput" rows="3" placeholder="Schreibe einen fröhlichen Geburtstagsgruß…"></textarea>
+          </label>
+          <button class="button primary" id="askGemini">Gemini fragen</button>
+          <p class="helper">Gemini kann Text generieren und einen Stil vorschlagen. Key wird nur lokal genutzt.</p>
+          <div class="gemini-status" id="geminiStatus"></div>
+        </section>
+      </aside>
+
+      <main class="canvas">
+        <div class="canvas__toolbar">
+          <div class="badge">Vorschau aktualisiert sich automatisch</div>
+          <button class="button print" id="printCard">🖨️ Drucken</button>
+        </div>
+        <div class="card-wrapper">
+          <div class="card" id="card">
+            <div class="card__background" id="cardBackground"></div>
+            <div class="card__content" id="cardContent">
+              <h1 id="cardTitle">Happy Birthday</h1>
+              <p id="cardSubtitle">Ich wünsche dir einen wundervollen Tag voller Freude und Glück!</p>
+              <p class="card__signature" id="cardSignature"></p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

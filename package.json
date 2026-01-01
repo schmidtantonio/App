@@ -1,0 +1,11 @@
+{
+  "name": "karten-schmiede",
+  "version": "1.0.0",
+  "description": "Statischer Grußkarten-Generator mit Gemini-Anbindung.",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "start": "python -m http.server 4173",
+    "test": "echo \"Kein automatisiertes Test-Setup vorhanden\""
+  }
+}
